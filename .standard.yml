@@ -1,0 +1,3 @@
+ignore:
+  - 'lib/tasks/**/*.rake':
+    - Lint/ConstantDefinitionInBlock

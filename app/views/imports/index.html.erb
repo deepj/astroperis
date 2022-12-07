@@ -1,0 +1,8 @@
+<main class="px-4 py-3">
+  <%= turbo_frame_tag("import_form") do %>
+    <%= render "imports/form", import: @import %>
+  <%- end -%>
+
+  <%= turbo_frame_tag("import_list") do %>
+  <%- end -%>
+</main>

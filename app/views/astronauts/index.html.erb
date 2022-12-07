@@ -1,0 +1,24 @@
+<main class="px-4 py-3">
+  <ul class="flex items-center pb-4 bg-white dark:bg-gray-900">
+    <li>
+      <%= link_to new_astronaut_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" do %>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> New astronaut &nbsp;
+        <span class="sr-only">Add a new astronaut</span>
+      <%- end -%>
+    </li>
+    <li>
+      <%= form_with url: search_astronauts_path, method: :get, data: {turbo_action: "advance", controller: "form", action: "input->form#submit"} do |form|%>
+        <div class="relative">
+        <%= form.label :name_search, class: "sr-only" %>
+        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+        </div>
+        <%= form.search_field :name_search, data: {action: "input->form-submission#search"}, class: "block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Search for astronauts" %>
+      </div>
+      <%- end -%>
+    </li>
+  </ul>
+
+  <%= render "astronauts/table", astronauts: @astronauts %>
+  <%= render "shared/pagination", pagy: @pagy %>
+</main>
