@@ -86,13 +86,12 @@ namespace :xml do
     extracting_astronauts = Enumerator.new do |yielder|
       Nokogiri::XML::Reader.from_io(data_file).each do |node|
         if node.name == "astronaut" && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
-          yielder << build_astronaut(node)
+          yielder << build_astronaut[Nokogiri::XML(node.outer_xml).root]
         end
       end
     end.lazy
 
     extracting_astronauts
-      .map(&extract_astronaut)
       .each_slice(5_000) do |astronauts|
         Astronaut.insert_all(astronauts)
         progressbar.progress = data_file.pos
