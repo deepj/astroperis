@@ -1,0 +1,2 @@
+<%= turbo_stream.update("astronauts", partial: "astronauts/table", locals: {astronauts: @astronauts}) %>
+<%= turbo_stream.replace("pagination", partial: "shared/pagination", locals: {pagy: @pagy}) %>
