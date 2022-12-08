@@ -6,6 +6,9 @@
           File name
         </th>
         <th scope="col" class="py-3 px-6">
+          Time spent
+        </th>
+        <th scope="col" class="py-3 px-6">
           State
         </th>
         <th scope="col" class="py-3 px-6">
@@ -26,6 +29,9 @@
         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
           <%= import.file_name %>
         </th>
+        <td class="py-4 px-6">
+          <%= time_spent_in_hhmmss(import.started_at, import.finished_at) %>
+        </td>
         <td class="py-4 px-6">
           <%= import.state %>
         </td>

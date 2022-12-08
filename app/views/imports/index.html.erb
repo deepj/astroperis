@@ -1,11 +1,11 @@
 <main class="px-4 py-3">
   <div class="grid overflow-hidden auto-cols-auto grid-rows-none gap-2">
-    <div class="min-w-full h-32 min-h-full row-span-2">
+    <div class="min-w-full row-span-2">
       <%= turbo_frame_tag("import_form") do %>
         <%= render "imports/form", import: @import %>
       <%- end -%>
     </div>
-    <div class="min-w-full h-32 min-h-full col-start-2 col-span-2">
+    <div class="min-w-full col-start-2 col-span-2">
       <%= turbo_frame_tag("imports") do %>
         <%= render "imports/list", imports: @imports %>
       <%- end -%>
