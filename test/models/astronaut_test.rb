@@ -10,9 +10,9 @@ class AstronautTest < ActiveSupport::TestCase
     astronaut = Astronaut.new(first_name: "John", last_name: "Doe", position: "Commander", country_code: "US")
 
     valid_astronaut = astronaut.tap { _1.age = "34" }
-    assert astronaut.valid?, "Astronaut age should be between 20 and 60"
+    assert valid_astronaut.valid?, "Astronaut age should be between 20 and 60"
 
     invalid_astronaut = astronaut.tap { _1.age = "19" }
-    assert_not astronaut.valid?, "Astronaut age should be between 20 and 60"
+    assert_not invalid_astronaut.valid?, "Astronaut age should be between 20 and 60"
   end
 end

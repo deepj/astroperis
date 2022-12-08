@@ -20,7 +20,7 @@ class S3XmlImportJob
           Astronaut.insert_all!(astronauts, returning: false)
         end
       end
-    rescue StandardError => exception
+    rescue => exception
       import.fail!
       Rails.logger.error("#{self.class.name}: Import failed: #{exception.message}")
       return

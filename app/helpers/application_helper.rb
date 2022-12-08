@@ -5,7 +5,7 @@ module ApplicationHelper
   include Pagy::Frontend
 
   def datetime_format(datetime)
-    return '' if datetime.blank?
+    return "" if datetime.blank?
 
     datetime.strftime("%d %b %Y %H:%M")
   end

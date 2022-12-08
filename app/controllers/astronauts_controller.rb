@@ -6,7 +6,7 @@ class AstronautsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.turbo_stream { render turbo_stream: turbo_stream.update('modal', partial: "astronauts/form", locals: {astronaut: @astronaut}) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("modal", partial: "astronauts/form", locals: {astronaut: @astronaut}) }
     end
   end
 
@@ -30,7 +30,7 @@ class AstronautsController < ApplicationController
           flash.now[:error] = "Astronaut could not be created."
           render :new
         end
-        format.turbo_stream { render turbo_stream: turbo_stream.update('modal', partial: "astronauts/form", locals: {astronaut: @astronaut}) }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", partial: "astronauts/form", locals: {astronaut: @astronaut}) }
       end
     end
   end
@@ -57,7 +57,7 @@ class AstronautsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.turbo_stream { render turbo_stream: turbo_stream.update('modal', partial: "astronauts/form", locals: {astronaut: @astronaut}) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("modal", partial: "astronauts/form", locals: {astronaut: @astronaut}) }
     end
   end
 

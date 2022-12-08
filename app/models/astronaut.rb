@@ -6,7 +6,7 @@ class Astronaut < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :position, presence: true
-  validates :age, presence: true, numericality: { in: 20..60  }
+  validates :age, presence: true, numericality: {in: 20..60}
   validates :country_code, presence: true
 
   def name
