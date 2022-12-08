@@ -23,6 +23,7 @@ class S3XmlImportJob
     rescue StandardError => exception
       import.fail!
       Rails.logger.error("#{self.class.name}: Import failed: #{exception.message}")
+      return
     end
 
     import.complete!

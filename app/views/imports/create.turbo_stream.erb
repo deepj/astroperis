@@ -1,0 +1,3 @@
+<%= turbo_stream.replace("import_form", partial: "imports/form", locals: {import: Import.new}) %>
+<%= turbo_stream.replace("imports", partial: "imports/list", locals: {imports: Import.last_5_imports}) %>
+<%= turbo_stream.prepend("flash", partial: "layouts/flash") %>

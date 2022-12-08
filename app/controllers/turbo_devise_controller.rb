@@ -1,3 +1,6 @@
+# fronzen_string_literal: true
+
+# Taken from https://github.com/heartcombo/devise/issues/5446
 class TurboDeviseController < Devise::DeviseController
   class Responder < ActionController::Responder
     def to_turbo_stream

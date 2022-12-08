@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Import < ApplicationRecord
-  include S3XmlUploader::Attachment.new(:file)
+  include S3Uploader::Attachment.new(:file)
 
   enum :state, %i[pending processing completed failed], default: :pending
 
